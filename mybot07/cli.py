@@ -26,6 +26,8 @@ while True:
         query = line[7:]  # 검색어
         title_list = naver_search(query)
         print(f"=== 네이버 검색 결과 : {query} ===")
+        for idx, title in enumerate(title_list, 1):
+            print(f"[{idx}] {title}")
         print(title_list)
     elif line == "야":
         print("왜?")
