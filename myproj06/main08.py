@@ -18,7 +18,7 @@ print(song_dict)
 # 2
 try:
     song_dict = max(song_list, key=peek_like_for_song, default=None)
-except ValueError 
+except ValueError :
     print("노래목록이 비었습니다.")
 else:
     print(song_dict)
