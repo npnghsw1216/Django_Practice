@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Post(models.Model):
-    # list_display = ["dog_name", "dog_size", "dog_orgin", "dog_explain", "dog_caution", "created_at"]
+    # list_display = ["dog_name", "dog_size", "dog_origin", "dog_explain", "dog_caution", "created_at"]
     # search_fields = ["dog_name"]
     dog_name = models.CharField(max_length=20)
     dog_size = models.CharField(max_length=20)

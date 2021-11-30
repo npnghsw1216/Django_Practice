@@ -1,0 +1,16 @@
+{%  extends "homework/layout.html" %}
+
+{% block content %}
+    <h2>{{ post.dong_name }}</h2>
+
+    {% if post.photo %}
+        <img src="{{ post.photo.url }}" style="max-width: 100%;"/>
+    {% endif %}
+
+    {{ post.dog_name|linebreaks }}
+    {{ post.dog_explain|linebreaks }}
+    {{ post.dog_caution|linebreaks }}
+
+    <hr />
+    {{ post.updated_at }}
+{% endblock %}

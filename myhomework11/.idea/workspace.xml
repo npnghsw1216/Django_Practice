@@ -12,8 +12,9 @@
       <change beforePath="$PROJECT_DIR$/../mydjango11/mydjango11/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../mydjango11/mydjango11/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mydjango12/blog/templates/blog/post_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../mydjango12/blog/templates/blog/post_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myhomework11/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myhomework11/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myproj08/html01/mariadb/mariadb6(select_test).py" beforeDir="false" afterPath="$PROJECT_DIR$/../myproj08/html01/mariadb/mariadb6(select_test).py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myproj08/html01/mariadb/mariadb7(gui_test).py" beforeDir="false" afterPath="$PROJECT_DIR$/../myproj08/html01/mariadb/mariadb7(gui_test).py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myproj09/telegram_mybot.py" beforeDir="false" afterPath="$PROJECT_DIR$/../myproj09/telegram_mybot.py" afterDir="false" />
@@ -23,8 +24,18 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/homework/templates/homework/index.html" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="21d7Z23xXd1YIgldQrBsPRpUBDo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -36,7 +47,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mydjango12" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
@@ -70,11 +81,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1638259163007</updated>
-      <workItem from="1638259164274" duration="3045000" />
+      <workItem from="1638259164274" duration="10527000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
