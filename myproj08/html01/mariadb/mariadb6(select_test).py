@@ -9,33 +9,31 @@ conn = pymysql.connect(host='127.0.0.1', user='root', password='1234', db='sqlDB
 # 커서
 cur = conn. cursor()
 
-# userTBL의 회원 데이터 Insert
-sql = ""
-# userID, name, birthYear, addr
-userID = ""
-name = ""
-birthYear = ""
-addr = ""
-mobile1 = ""
-mobile2 = ""
-height = ""
+# 과제 : userTBL의 회원 데이터 Insert(Null없이 모든 컬럼의 데이터)
+sql = "SELECT userID, name, birthYear, addr,"\
+      "CONCAT(mobile1,'-',mobile2)AS mobile,"\
+      "IFNULL(height,0)AS height,"\
+      "IFNULL(mDate,'-')AS mDate " \
+      "FROM userTBL"
+
+cur.execute(sql)
+print("회원ID 회원명 출생년도 주소 연락처 키 가입일")
+print("-------------------------------------")
 
 while(True):
-    userID = input("사용자 ID ==>")
-    if userID == "":
+    row = cur.fetchone()
+    if row == None:
         break
-    name = input("사용자 이름 ==>")
-    birthYear = input("사용자 출생년도 ==>")
-    addr = input("사용자 주소 ==>")
-    mobile1 = input("핸드폰 앞3자리 ==>")
-    mobile2 = input("핸드폰 뒷8자리 ==>")
-    height = input("사용자 키 ==>")
+    userID = row[00]
+    name = row[1]
+    birthYear = row[2]
+    addr = row[3]
+    mdate = row[6]
+    mobile = row[4]
+    height = row[5]
+    mDate = row[6]
 
-    sql = "INSERT INTO userTBL (userID, name, birthYear, addr, mobile1, mobile2, height,mDate) VALUE " \
-          "('"+userID+"','"+name+"','"+birthYear+"','"+addr+"','"+mobile1+"','"+mobile2+"','"+height+"',CURDATE())"
-    print(sql)
-    cur.execute(sql)
+    print("%5s %5s %d %5s %10s %d %5s" % (userID, name, birthYear, addr, mobile, height, mDate))
 
-conn.commit()
 conn.close()
 

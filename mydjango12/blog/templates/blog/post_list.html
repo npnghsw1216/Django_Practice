@@ -1,0 +1,20 @@
+{% extends "blog/layout.html" %}
+
+{% block content %}
+
+    <form action="" method="get">
+        <input type="text" name="q" value="{{ request.GET.q }}" />
+        <input type="submit" value="검색" />
+    </form>
+
+
+     <u1>
+        {% for post in post_list %}
+            <li>
+                <a href="/blog/{{ post.pk }}/">
+                    {{ post.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </u1>
+{% endblock %}
