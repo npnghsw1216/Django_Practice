@@ -1,5 +1,26 @@
-{% extends "catube/layout.html" %}
+{%  extends "catube/layout.html" %}
 
 {% block content %}
-    catube/index.html
+    <div class="row">
+        {% for video in video_list %}
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 my-3">
+                <div class="card">
+                    <a href="/catube/{{ video.pk }}/">
+                        <img src="{{ video.thumbnail_file_thumb.url }}"
+                             alt="{{ video.title }}"
+                             class="card-img-top"
+                        />
+
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ video.title }}
+                        </h5>
+                    </div>
+
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends "catube/layout.html" %}
+
+{% block content%}
+    <h2>{{ video.title }}</h2>
+
+    {{ video.description|linebreaks }}
+    <hr/>
+
+    <video controls>
+        <source src="{{ video.video_file.url }}" type="video/mp4">
+        임베디드 비디오를 재생을 지원하는 브라우저 입니다
+    </video>
+
+    <hr/>
+
+    <a href="/catube/">목록</a>
+
+{% endblock %}
