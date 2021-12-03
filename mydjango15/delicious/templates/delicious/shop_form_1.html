@@ -1,0 +1,22 @@
+{% extends "delicious/layout.html" %}
+{% block content %}
+    <style>
+        input, textarea{
+            display: block;
+            margin-bottom: 0.5em;
+        }
+    </style>
+
+    <h2>새 Shop 입력 폼</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="name" />
+        <textarea name="description"></textarea>
+        <input type="text" name="address" />
+        <input type="text" name="latitude" />
+        <input type="text" name="longitude" />
+        <input type="text" name="telephone" />
+        <input type="submit" value="저장하기" />
+    </form>
+{% endblock %}

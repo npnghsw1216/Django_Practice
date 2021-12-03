@@ -1,0 +1,12 @@
+{% extends "delicious/layout.html" %}
+
+{% block content %}
+
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        <table>
+             {{ form.as_table }}
+        </table>
+        <input type="submit" value="저장하기">
+    </form>
+{% endblock %}

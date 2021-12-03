@@ -1,0 +1,18 @@
+{% extends "delicious/layout.html" %}
+
+{% block content %}
+    <h2>{{ shop.name }}</h2>
+
+    <ul>
+        <li>주소:{{ shop.address }}</li>
+        <li>TEL:{{ shop.telephone }}</li>
+    </ul>
+
+    {{ shop.description|linebreaks }}
+
+    <hr/>
+        <a href="/delicious/"class="btn btn-primary">목록으로</a>
+        <a href="/delicious/"class="btn btn-secondary">목록으로</a>
+        <a href="/delicious/"class="btn btn-danger">목록으로</a>
+
+{% endblock %}
