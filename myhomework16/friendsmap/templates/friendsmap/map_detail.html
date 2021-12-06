@@ -1,14 +1,17 @@
 {% extends "friendsmap/layout.html" %}
 
 {% block content %}
+
     <h2>Title : {{ post.title}}</h2>
 
     {% if post.image_file %}
         <img src="{{ post.image_file.url }}" style="max-width: 50%"/>
     {% endif %}
     <hr>
+    설명 : {{ post.description }}
 
-    주소 : {{ post.description|linebreaks }}
+    <hr>
+    주소 : {{ post.address}}
     <hr>
 
     생성 시간 : {{ post.created_at }}
