@@ -1,6 +1,6 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 
 from catube.models import Video
 
@@ -8,15 +8,15 @@ from catube.models import Video
 index = ListView.as_view(model=Video, template_name="catube/index.html")
 
 
-# def index(request: HttpRequest) -> HttpResponse:
-#     qs = Video.objects.all()
-#     return render(
-#         request,
-#         "catube/index.html",
-#         {
-#             "video_list": qs,
-#         },
-#     )
+def index(request: HttpRequest) -> HttpResponse:
+    qs = Video.objects.all()
+    return render(
+        request,
+        "catube/index.html",
+        {
+            "video_list": qs,
+        },
+    )
 
 
 def video_detail(request: HttpRequest, pk: int) -> HttpResponse:

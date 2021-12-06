@@ -1,4 +1,4 @@
-"""django15 URL Configuration
+"""myhomework16 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -18,16 +18,4 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
-
-urlpatterns = [
-    path('delicious/', shop_list),
-    path('delicious/<intLpk>', shop_detail),
-    path('delicious/new1', shop_new_1),
-    path('delicious/', shop_new),
-
-]
-
-urlpatterns = [
-
 ]

@@ -3,9 +3,10 @@
 {% block content %}
 
     <form action="" method="get">
-        <input type="text" name="query" value="="{{ request.GET.query }}/>
+        <input type="text" name="query" value="{{ request.GET.query }}" />
         <input type="submit" value="검색" />
     </form>
+
     <table class="table table-hover table-bordered">
         <thead>
             <tr>
@@ -17,7 +18,7 @@
             {% for shop in shop_list %}
                 <tr>
                     <td>
-                        <a href="/delicious/{{ shop.pk }}">
+                        <a href="{% url "delicious:shop_detail" shop.pk %}">
                             {{ shop.name }}
                         </a>
                     </td>
