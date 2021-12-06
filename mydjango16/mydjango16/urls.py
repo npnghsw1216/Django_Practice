@@ -1,4 +1,4 @@
-"""myhomework16 URL Configuration
+"""mydjango16 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -18,12 +18,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from friendsmap.views import map_list, map_detail
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("friendsmap/", map_list),
-    path("friendsmap/<int:pk>/", map_detail),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

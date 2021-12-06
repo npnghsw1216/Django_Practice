@@ -9,12 +9,5 @@
     {{ shop.description|linebreaks }}
 
     <hr/>
-    {%url "delicious:shop_detail" shop.pk %}
-
-    <a href="{% url "delicious:shop_list" %}" class="btn btn-primary">목록으로</a>
-    <a href="{% url "delicious:shop_list" %}" class="btn btn-secondary">목록으로</a>
-    <a href="{% url "delicious:shop_list" %}" class="btn btn-danger">목록으로</a>
-    <a href="{% url "delicious:shop_list" %}" class="btn btn-info">목록으로</a>
-    <a href="{% url "delicious:shop_list" %}" class="btn btn-success">목록으로</a>
 
 {% endblock %}
