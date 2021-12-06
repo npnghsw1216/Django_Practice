@@ -1,0 +1,21 @@
+{% extends "friendsmap/layout.html" %}
+
+{% block content %}
+    <h2>Title : {{ post.title}}</h2>
+
+    {% if post.image_file %}
+        <img src="{{ post.image_file.url }}" style="max-width: 50%"/>
+    {% endif %}
+    <hr>
+
+    주소 : {{ post.description|linebreaks }}
+    <hr>
+
+    생성 시간 : {{ post.created_at }}
+    <hr>
+
+    업데이트 시간 : {{ post.updated_at }}
+    <hr>
+
+    <a href="/friendsmap/" class="btn-danger">목록으로</a>
+{% endblock %}

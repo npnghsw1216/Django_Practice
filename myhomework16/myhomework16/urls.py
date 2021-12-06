@@ -18,8 +18,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from friendsmap.views import map_list, map_detail
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("friendsmap/", map_list),
+    path("friendsmap/<int:pk>/", map_detail),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

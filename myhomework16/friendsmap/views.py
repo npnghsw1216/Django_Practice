@@ -12,7 +12,7 @@ def map_list(request: HttpRequest) -> HttpResponse:
     return render(request, "friendsmap/map_list.html")
 
 
-def map_detial(request: HttpRequest, pk=int) -> HttpResponse:
+def map_detail(request: HttpRequest, pk=int) -> HttpResponse:
     post = Post.objects.get(pk=pk)
     return render(request, "friendsmap/map_detail.html", {
         "post": post,
