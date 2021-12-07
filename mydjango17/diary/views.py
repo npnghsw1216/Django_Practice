@@ -12,4 +12,7 @@ def post_list(request: HttpRequest) -> HttpResponse:
 
 
 def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
-    pass
+    post = Post.objects.get(pk=pk)
+    return render(request, "diary/post_detail.html", {
+        "post": post,
+    })
