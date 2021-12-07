@@ -21,7 +21,7 @@ class Post(TimeStampedModel):
 
     class Meta:
         verbose_name = "포스팅"
-        verbose_name_plural = "포스팅1"
+        verbose_name_plural = "포스팅목록"
 
 
 class Comment(TimeStampedModel):
@@ -29,8 +29,8 @@ class Comment(TimeStampedModel):
     message = models.TextField()
 
     class Meta:
-        verbose_name = "포스팅2"
-        verbose_name_plural = "포스팅2"
+        verbose_name = "댓글"
+        verbose_name_plural = "댓글 목록"
 
 
 class Tag(TimeStampedModel):
@@ -40,5 +40,5 @@ class Tag(TimeStampedModel):
         return self.name
 
     class Meta:
-        verbose_name = "포스팅3"
-        verbose_name_plural = "포스팅3"
+        verbose_name = "태그"
+        verbose_name_plural = "태그 목록"
