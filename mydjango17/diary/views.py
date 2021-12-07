@@ -18,6 +18,10 @@ def post_list(request: HttpRequest) -> HttpResponse:
 
 def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
     post = Post.objects.get(pk=pk)
+    comment_list = post.comment_set.all()
+    tag_list = post.tag_set.all()
     return render(request, "diary/post_detail.html", {
         "post": post,
+        "comment_list": comment_list,
+        "tag_list": tag_list,
     })
