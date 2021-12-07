@@ -20,6 +20,10 @@ class Post(TimeStampedModel):
     def __str__(self) -> str:
         return self.title
 
+    class Meta:
+        verbose_name = "포스팅"
+        verbose_name_plural = "포스팅 목록"
+
 
 class Comment(TimeStampedModel):
 
@@ -30,11 +34,19 @@ class Comment(TimeStampedModel):
     def __str__(self) -> str:
         return self.title
 
+    class Meta:
+        verbose_name = "댓글"
+        verbose_name_plural = "댓글 목록"
+
 
 class Tag(TimeStampedModel):
     name = models.CharField(max_length=200, db_index=True)
 
     def __str__(self) -> str:
         return self.title
+
+    class Meta:
+        verbose_name = "태그"
+        verbose_name_plural = "태그 목록"
 
 
