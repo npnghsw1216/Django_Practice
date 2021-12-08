@@ -7,8 +7,12 @@ from constellation.models import Post
 def post_list(request: HttpRequest) -> HttpResponse:
     qs = Post.objects.all()
 
-    return render(request, "constellation/post_list.html", {
-        "post_list": qs,
+    query = request.GET.get("query", "")
+    if query:
+        qs = qs.filter(title__icontains=query)
+
+        return render(request, "constellation/post_list.html", {
+            "post_list": qs,
     })
 
 

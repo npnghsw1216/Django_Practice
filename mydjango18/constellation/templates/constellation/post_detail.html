@@ -1,0 +1,15 @@
+{% extends "constellation/layout.html"   %}
+
+{% block content %}
+    <h2>별자리 : {{post.title }}</h2>
+    <ul>
+        <img src="{{ post.photo.url }}"/>
+    </ul>
+        설명 : {{ post.description|linebreaks }}
+    <hr/>
+        시작일 : {{ post.start_date|linebreaks }}
+    <hr/>
+        종료일 : {{ post.end_date|linebreaks }}
+    <hr/>
+        운세 : {{ post.fortune|linebreaks }}
+{% endblock %}
