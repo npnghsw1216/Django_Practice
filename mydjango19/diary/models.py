@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinLengthValidator
 
 
 class TimeStampedModel(models.Model):
@@ -11,7 +12,14 @@ class TimeStampedModel(models.Model):
 
 class Post(TimeStampedModel):
     author_name = models.CharField(max_length=20)
-    title = models.CharField(max_length=200, db_index=True)
+    title = models.CharField(
+        max_length=200,
+        db_index=True,
+        validators=[
+            MinLengthValidator(3),
+            # MaxLengthValidator(),
+        ],
+    )
     content = models.TextField()
     photo = models.ImageField(upload_to="diary/post/%Y/%m/%d")  # 연, 월, 일로 나눠서 저장
     tag_set = models.ManyToManyField("Tag", blank=True)
