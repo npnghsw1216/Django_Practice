@@ -42,6 +42,8 @@ def post_new(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
+            post = form.save(commit=False)  # ModelForm에서만 지원
+            post.ip = request.META["REMOTE_ADDR"]
             form.save()  # ModelForm에서만 지원
             return redirect("diary:post_list")
     else:
@@ -59,7 +61,7 @@ def post_edit(request: HttpRequest, pk:int) -> HttpResponse:
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
-            form.save()  # ModelForm에서만 지원
+            form.save()
             return redirect("diary:post_list")
     else:
         form = PostForm(instance=post)

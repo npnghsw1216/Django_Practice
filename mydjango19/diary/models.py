@@ -15,6 +15,7 @@ class Post(TimeStampedModel):
     content = models.TextField()
     photo = models.ImageField(upload_to="diary/post/%Y/%m/%d")  # 연, 월, 일로 나눠서 저장
     tag_set = models.ManyToManyField("Tag", blank=True)
+    ip = models.GenericIPAddressField()
 
     def __str__(self) -> str:
         return self.title
@@ -45,3 +46,5 @@ class Tag(TimeStampedModel):
     class Meta:
         verbose_name = "태그"
         verbose_name_plural = "태그 목록"
+
+
