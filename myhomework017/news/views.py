@@ -24,7 +24,7 @@ def post_list(request: HttpRequest) -> HttpResponse:
     })
 
 
-def post_detail(request: HttpRequest, pk=int) -> HttpResponse:
+def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
     post = Post.objects.get(pk=pk)
     comment_list = post.comment_set.all()
     tag_list = post.tag_set.all()

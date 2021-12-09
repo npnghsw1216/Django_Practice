@@ -1,15 +1,23 @@
-{% extends "constellation/layout.html"   %}
+{% extends "constellation/layout.html" %}
 
 {% block content %}
-    <h2>별자리 : {{post.title }}</h2>
+    <h2>{{ post.title }}</h2>
     <ul>
         <img src="{{ post.photo.url }}"/>
     </ul>
-        설명 : {{ post.description|linebreaks }}
+    설명 : {{ post.description|linebreaks }}
     <hr/>
-        시작일 : {{ post.start_date|linebreaks }}
+    시작일 : {{ post.start_date|linebreaks }}
     <hr/>
-        종료일 : {{ post.end_date|linebreaks }}
+    종료일 : {{ post.end_date|linebreaks }}
     <hr/>
-        운세 : {{ post.fortune|linebreaks }}
+    운세 : {{ post.fortune|linebreaks }}
+
+    <a href="/constellation/" class="btn btn-sm btn-primary">
+        목록으로
+    </a>
+
+    <a href="{% url "constellation:post_detail" post.pk %}" class="btn btn-sm btn-danger">
+        위로가기
+    </a>
 {% endblock %}

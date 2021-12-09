@@ -20,6 +20,7 @@ def shop_list(request: HttpRequest) -> HttpResponse:
     }
     return render(request, "delicious/shop_list.html", context_data)
 
+
 def shop_detail(request: HttpRequest, pk: int) -> HttpResponse:
     shop = Shop.objects.get(pk=pk)   # pk(필드 값)=pk(변수명), # .get은 하나만 찾는다
     # template_name = "delicious/shop_detail.html"

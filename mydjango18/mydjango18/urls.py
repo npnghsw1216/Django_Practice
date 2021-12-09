@@ -26,7 +26,7 @@ def root(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('constellation', include('constellation.urls')),
+    path('constellation/', include('constellation.urls')),
     path('', root, name='root')
 ]
 
