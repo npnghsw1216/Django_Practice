@@ -35,6 +35,14 @@
             <li class="nav-item"><a href="#" class="nav-link">About</a></li>
         </ul>
     </header>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message.tags }}
+                {{ message }}
+            </div>
+        {% endfor%}
+    {% endif %}
     {% block content %}
 
     {% endblock %}

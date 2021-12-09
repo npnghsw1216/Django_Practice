@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 
@@ -44,7 +45,8 @@ def post_new(request: HttpRequest) -> HttpResponse:
         if form.is_valid():
             post = form.save(commit=False)  # ModelForm에서만 지원
             post.ip = request.META["REMOTE_ADDR"]
-            form.save()  # ModelForm에서만 지원
+            post.save()  # ModelForm에서만 지원
+            messages.success(request, "성공적으로 저장했습니다.")
             return redirect("diary:post_list")
     else:
         form = PostForm()
@@ -62,6 +64,7 @@ def post_edit(request: HttpRequest, pk:int) -> HttpResponse:
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
+            messages.success(request, "성공적으로 저장했습니다.")
             return redirect("diary:post_list")
     else:
         form = PostForm(instance=post)
