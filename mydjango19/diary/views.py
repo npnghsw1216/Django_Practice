@@ -113,7 +113,7 @@ def comment_edit(request: HttpRequest, post_pk, pk:int) -> HttpResponse:
             return redirect("diary:post_detail", post_pk)
     else:
         form = CommentForm(instance=comment)
-            
+
     return render(request, "diary/comment_form.html", {
         "form": form,
     })
