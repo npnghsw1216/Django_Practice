@@ -26,7 +26,7 @@ class Post(TimeStampedModel):
     ip = models.GenericIPAddressField()
 
     def __str__(self) -> str:
-        return self.title
+        return f"[{self.pk}]{self.title}"
 
     class Meta:
         verbose_name = "포스팅"
@@ -54,5 +54,8 @@ class Tag(TimeStampedModel):
     class Meta:
         verbose_name = "태그"
         verbose_name_plural = "태그 목록"
+
+
+
 
 
