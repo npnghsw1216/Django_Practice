@@ -89,7 +89,7 @@ def comment_new(request: HttpRequest, post_pk: int) -> HttpResponse:
         form = CommentForm(request.POST, request.FILES)
         if form.is_valid():
             # form.cleaned_data  # 유효성 검사에 통과한 값들 (dict)
-            comment = form.save( commit=False)
+            comment = form.save(commit=False)
             comment.post = post
             comment.save()
             return redirect("diary:post_detail", post_pk)
