@@ -11,3 +11,7 @@ class ShopAdmin(admin.ModelAdmin):
 class ReviewAdmin(admin.ModelAdmin):
     pass
 
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    pass
