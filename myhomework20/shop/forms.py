@@ -1,5 +1,5 @@
 from django import forms
-from shop.models import Shop
+from shop.models import Shop, Review
 
 
 class ShopForm(forms.ModelForm):
@@ -12,3 +12,10 @@ class ShopForm(forms.ModelForm):
             "photo",
             "tag_set",
         ]
+
+
+class ReviewForm(forms.ModelForm):
+    # title = forms.CharField()
+    class Meta:
+        model = Review
+        fields = ["shop", "name", "message"]

@@ -22,7 +22,7 @@
         {% for review in review_list %}
             <li>
                 {{ review.message }}
-                by {{ review.author_name }}
+                by {{ review.name }}
                 at
                 <span title="{{ review.created_at }}">
                     {{ review.created_at|timesince }} 전
