@@ -4,23 +4,23 @@
     <h2>Shop List</h2>
 
     <div class="row">
-        <div class="col-sm-8">컨텐츠
+        <div class="col-sm-8">
             <ul>
                 {% for shop in shop_list %}
-                    {{ shop.name }}
+                    <li>
+                        {{ shop.name }}
+                    </li>
                 {% endfor %}
             </ul>
         </div>
-        <div class="col-sm-4">사이드바
+        <div class="col-sm-4">
             <form action="" method="get">
                 <input type="text"
-                       name="qeury"
+                       name="query"
                        placeholder="검색어를 입력해주세요."
                        value="{{ request.GET.query }}"/>
                 <input type="submit" value="검색"/>
-
             </form>
-
             <ul>
                 <li>
                     <a href="?category_id=">
@@ -32,7 +32,6 @@
                         <a href="?category_id={{ category.pk }}">
                             {{ category.name }}
                         </a>
-
                     </li>
                 {% endfor %}
             </ul>
