@@ -2,9 +2,22 @@
 
 {% block content %}
     <h2>{{ shop.title }}</h2>
+    <p>
+        {% for tag in shop.tag_set.all %}
+            <span class="badge" style="background-color: aquamarine">{{ tag.name }}</span>
+        {% endfor %}
+    </p>
 
     {{ shop.content }}
 
-    <hr>
+    <hr />
     {{ shop.created_at|timesince }} 전에 등록
+
+    <hr />
+    <a href="{% url "shop:shop_edit" shop.pk %}">
+        수정
+    </a>
+    <a href="{% url "shop:shop_list" %}">
+        목록으로
+    </a>
 {% endblock %}
