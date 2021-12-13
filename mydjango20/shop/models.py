@@ -16,6 +16,9 @@ class Category(TimestampedModel):
     def __str__(self) -> str:
         return self.name
 
+    class Meta:
+        ordering = ["-id"]  # 왠만해서 이거 넣기, 최신순으로 보여주기 위함
+
 
 class Shop(TimestampedModel):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -32,11 +35,20 @@ class Shop(TimestampedModel):
     def __str__(self) -> str:
         return self.name
 
+    class Meta:
+        ordering = ["-id"]  # 왠만해서 이거 넣기, 최신순으로 보여주기 위함
+
 
 class Review(TimestampedModel):
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
     name = models.CharField(max_length=20)
     message = models.TextField()
+
+    def __str__(self) -> str:
+        return self.name
+
+    class Meta:
+        ordering = ["-id"]  # 왠만해서 이거 넣기, 최신순으로 보여주기 위함
 
 
 class Tag(TimestampedModel):
@@ -44,4 +56,7 @@ class Tag(TimestampedModel):
 
     def __str__(self) -> str:
         return self.name
+
+    class Meta:
+        ordering = ["-id"]  # 왠만해서 이거 넣기, 최신순으로 보여주기 위함
 

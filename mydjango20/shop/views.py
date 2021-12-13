@@ -18,7 +18,7 @@ def tag_detail(request: HttpRequest, tag_name: str) -> HttpResponse:
 
 
 def shop_list(request: HttpRequest) -> HttpResponse:
-    qs = Shop.objects.all()
+    qs = Shop.objects.all()  # .order_by("-id")
 
     query = request.GET.get("query", "")
     if query:
