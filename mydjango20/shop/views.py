@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 
 from shop.forms import ShopForm, ReviewForm
-from shop.models import Shop, Review
+from shop.models import Shop, Review, Category
 
 
 def tag_detail(request: HttpRequest, tag_name: str) -> HttpResponse:
@@ -18,13 +18,19 @@ def tag_detail(request: HttpRequest, tag_name: str) -> HttpResponse:
 
 
 def shop_list(request: HttpRequest) -> HttpResponse:
+    category_qs = Category.objects.all()
     qs = Shop.objects.all()  # .order_by("-id")
+
+    category_id: str = request.GET.get("category_id", "")
+    if category_id:
+        qs = qs.filter(category__pk=category_id)
 
     query = request.GET.get("query", "")
     if query:
         qs = qs.filter(title__icontains=query)
 
     return render(request, "shop/shop_list.html", {
+        "category_list": category_qs,
         "shop_list": qs,
     })
 
