@@ -10,7 +10,12 @@
             </form>
             <ul>
                 {% for shop in shop_list %}
-                    <li><a href="{% url "shop:shop_detail" shop.pk %}">{{ shop }}</a></li>
+                    <li>
+                        <a
+                            href="{% url "shop:shop_detail" shop.pk %}">
+                            {{ shop }}
+                        </a>
+                    </li>
                 {% endfor %}
             </ul>
             <div class="d-grid mb-3">
