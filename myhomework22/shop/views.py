@@ -1,6 +1,7 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, get_object_or_404
 
+from shop.form import ShopForm
 from shop.models import Shop, Category
 
 
@@ -17,9 +18,17 @@ def shop_list(request: HttpRequest) -> HttpResponse:
     })
 
 
-def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
+def shop_detail(request: HttpRequest, pk: int) -> HttpResponse:
     shop = get_object_or_404(Shop, pk=pk)
 
     return render(request, "shop/shop_detail.html", {
         "shop": shop,
     })
+
+
+def shop_new(request: HttpRequest) -> HttpResponse:
+    form = ShopForm()
+    return render(request, "shop/shop_form.html", {
+        "form": form,
+    })
+
