@@ -1,0 +1,14 @@
+{% extends "shop/layout.html" %}
+
+{% block content %}
+    <h2>ShopList</h2>
+    <ul>
+        {% for shop in shop_list %}
+            <li>
+                <a href="{% url "shop:shop_detail"shop.pk %}">
+                    {{ shop.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

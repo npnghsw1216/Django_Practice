@@ -1,0 +1,10 @@
+{% extends "shop/layout.html" %}
+
+{% block content %}
+    <h2>{{ shop.title }}</h2>
+
+    {{ shop.content }}
+
+    <hr>
+    {{ shop.created_at|timesince }} 전에 등록
+{% endblock %}
