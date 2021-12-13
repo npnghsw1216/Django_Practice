@@ -3,34 +3,44 @@
 {% block content %}
     <h2>Shop List</h2>
 
-    <ul>
-        <li>
-            <a href="?category_id=">
-                전체
-            </a>
-        </li>
-        {% for category in category_list %}
-            <li>
-                <a href="?category_id={{ category.pk }}">
-                    {{ category.name }}
-                </a>
+    <div class="row">
+        <div class="col-sm-8">컨텐츠
+            <ul>
+                {% for shop in shop_list %}
+                    {{ shop.name }}
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-sm-4">사이드바
+            <form action="" method="get">
+                <input type="text"
+                       name="qeury"
+                       placeholder="검색어를 입력해주세요."
+                       value="{{ request.GET.query }}"/>
+                <input type="submit" value="검색"/>
 
-            </li>
-        {% endfor %}
-    </ul>
+            </form>
 
-    <form action="" method="get">
-        <input type="text"
-               name="qeury"
-               placeholder="검색어를 입력해주세요."
-               value="{{ request.GET.query }}"/>
-        <input type="submit" value="검색"/>
+            <ul>
+                <li>
+                    <a href="?category_id=">
+                        전체
+                    </a>
+                </li>
+                {% for category in category_list %}
+                    <li>
+                        <a href="?category_id={{ category.pk }}">
+                            {{ category.name }}
+                        </a>
 
-    </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 
-    <ul>
-        {% for shop in shop_list %}
-            {{ shop.name }}
-        {% endfor %}
-    </ul>
+
+
+
+
 {% endblock %}
