@@ -56,16 +56,6 @@ def shop_new(request: HttpRequest) -> HttpResponse:
         if form.is_valid():
             saved_post = form.save()
 
-            tag_list = []
-            tags = form.cleaned_data.get("tags", "")
-            for word in tags.split(","):
-                tag_name = word.strip()
-                tag, __ = Tag.objects.get_or_create(name=tag_name)
-                tag_list.append(tag)
-
-            saved_post.tag_set.clear()  # 간단구현을 위해 clear 호출
-            saved_post.tag_set.add(*tag_list)
-
             # shop_detail 뷰를 구현했다면 !!!
             return redirect("shop:shop_detail", saved_post.pk)
     else:
