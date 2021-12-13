@@ -6,9 +6,10 @@ class ShopForm(forms.ModelForm):
     class Meta:
         model = Shop
         fields = [
+            "category",
             "name",
-            "description",
             "telephone",
+            "description",
             "photo",
             "tag_set",
         ]

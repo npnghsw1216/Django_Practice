@@ -1,45 +1,58 @@
 {% extends "shop/layout.html" %}
 
 {% block content %}
-    <h2>{{ shop.title }}</h2>
+    <h2>{{ shop.name }}</h2>
+
     <p>
-        태그 :
-        {% for tag in tag_list %}
-            <a href="{% url "shop:tag_detail" tag.name%}" class="badge bg-success">
-                {{ tag.name }}
-            </a>
+        {% for tag in shop.tag_set.all %}
+            <span class="badge" style="background-color: steelblue;">{{ tag.name }}</span>
         {% endfor %}
     </p>
 
-    <img src="{{ shop.photo.url }}" alt="{{ shop.title }}" />
+    {{ shop.description }}
 
-    {{ shop.content|linebreaks }}
-    <h3>댓글</h3>
-
-    <a href="{% url "shop:review_new" shop.pk %}">댓글 쓰기</a>
-
-    <ul>
-        {% for review in review_list %}
-            <li>
-                {{ review.message }}
-                by {{ review.author_name }}
-                at
-                <span title="{{ review.created_at }}">
-                    {{ review.created_at|timesince }} 전
-                </span>
-
-                <a href="{% url "shop:review_edit" shop.pk review.pk %}">
-                    Edit
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
     <hr />
-    <a href="{%url "shop:shop_list"%}">
-        목록으로
-    </a>
-
-    <a href="{%url "shop:shop_edit" shop.pk%}">
-        수정하기
-    </a>
+    {{ shop.created_at|timesince }} 전에 등록
 {% endblock %}
+
+{#    <p>#}
+{#        태그 :#}
+{#        {% for tag in tag_list %}#}
+{#            <a href="{% url "shop:tag_detail" tag.name%}" class="badge bg-success">#}
+{#                {{ tag.name }}#}
+{#            </a>#}
+{#        {% endfor %}#}
+{#    </p>#}
+{##}
+{#    <img src="{{ shop.photo.url }}" alt="{{ shop.title }}" />#}
+{##}
+{#    {{ shop.content|linebreaks }}#}
+{#    <h3>댓글</h3>#}
+{##}
+{#    <a href="{% url "shop:review_new" shop.pk %}">댓글 쓰기</a>#}
+{##}
+{#    <ul>#}
+{#        {% for review in review_list %}#}
+{#            <li>#}
+{#                {{ review.message }}#}
+{#                by {{ review.author_name }}#}
+{#                at#}
+{#                <span title="{{ review.created_at }}">#}
+{#                    {{ review.created_at|timesince }} 전#}
+{#                </span>#}
+{##}
+{#                <a href="{% url "shop:review_edit" shop.pk review.pk %}">#}
+{#                    Edit#}
+{#                </a>#}
+{#            </li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+{#    <hr />#}
+{#    <a href="{%url "shop:shop_list"%}">#}
+{#        목록으로#}
+{#    </a>#}
+{##}
+{#    <a href="{%url "shop:shop_edit" shop.pk%}">#}
+{#        수정하기#}
+{#    </a>#}
+{#{% endblock %}#}
