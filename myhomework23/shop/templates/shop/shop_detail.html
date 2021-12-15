@@ -1,0 +1,24 @@
+{% extends "shop/layout.html" %}
+
+{% block content %}
+    <h2>{{ shop.title }}</h2>
+    <p>
+        {% for tag in shop.tag_set.all %}
+            <span class="badge" style="background-color: steelblue;">{{ tag.name }}</span>
+        {% endfor %}
+    </p>
+
+
+    {{ shop.content }}
+
+    <hr/>
+    {{ shop.created_at|timesince }} 전에 등록
+
+    <hr />
+    <a href="{% url "shop:shop_form" shop.pk %}">
+        Edit
+    </a>
+     <a href="{%url "shop:shop_list"%}">
+        목록으로
+    </a>
+{% endblock %}
