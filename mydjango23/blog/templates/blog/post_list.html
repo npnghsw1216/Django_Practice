@@ -1,0 +1,12 @@
+{% extends "blog/layout.html" %}
+{% block contnet %}
+        <h2>Post List</h2>
+        <table>
+        <thread></thread>
+        {% for post in post_list %}
+            <tr>
+                <td>{{ post.title }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+{% endblock %}
