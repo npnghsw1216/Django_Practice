@@ -9,10 +9,18 @@
 </head>
 <body>
 
-        <h1>허성우의 블로그</h1>
+    <h1>허성우의 블로그</h1>
 
-        <hr/>
-    &copy; 허성우
+       {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+    <hr />
+    &copy; 2021. 허성우.
 
 </body>
 </html>

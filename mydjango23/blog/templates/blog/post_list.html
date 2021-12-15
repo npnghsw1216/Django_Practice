@@ -1,12 +1,24 @@
 {% extends "blog/layout.html" %}
-{% block contnet %}
-        <h2>Post List</h2>
-        <table>
-        <thread></thread>
-        {% for post in post_list %}
-            <tr>
-                <td>{{ post.title }}</td>
-            </tr>
-        {% endfor %}
-        </table>
+
+{% block content %}
+    <h2>Post List</h2>
+
+    <table>
+        <thead>
+            {% for post in post_list %}
+                <tr>
+                    <td>
+                        <a href="{% url "blog:post_detail" post.pk %}">
+                            {{ post.title }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </thead>
+    </table>
+
+    <hr />
+    <a href="{% url "blog:post_new" %}">
+        포스팅 쓰기
+    </a>
 {% endblock %}

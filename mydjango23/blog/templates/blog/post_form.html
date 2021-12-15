@@ -1,0 +1,20 @@
+{% extends "blog/layout.html" %}
+
+{% block content %}
+    <h2>Post Form</h2>
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" />
+    </form>
+
+    <hr />
+    {% if post %}
+    <a href="{% url "blog:post_detail" post.pk %}">
+        조회화면으로
+    </a>
+    {% endif %}
+{% endblock %}
