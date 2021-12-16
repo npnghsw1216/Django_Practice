@@ -3,9 +3,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
-from django.views.generic import CreateView
 from PIL import Image
+
+from accounts.forms import LoginForm, SignupForm
 
 
 def profile_image(request: HttpRequest) -> HttpResponse:
@@ -19,6 +19,7 @@ def profile_image(request: HttpRequest) -> HttpResponse:
 
 
 login = LoginView.as_view(
+    form_class=LoginForm,
     template_name="accounts/login_form.html",
 )
 
@@ -30,7 +31,7 @@ def signup(request):
             form.save()
             return redirect("accounts:login")
     else:
-        form = UserCreationForm()
+        form = SignupForm()
 
     return render(request, "accounts/signup_form.html", {
         "form": form,
@@ -49,5 +50,5 @@ def profile(request):
 
 
 logout = LogoutView.as_view(
-    next_page="account:login",
+    next_page="accounts:login",
 )
