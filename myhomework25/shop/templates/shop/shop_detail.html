@@ -12,8 +12,15 @@
     {{ shop.content|linebreaks }}
 
     <hr/>
-    <a href="{% url "shop:shop_list"  %}">
-        포스팅 목록
+    <a href="{% url "shop:shop_list" %}">
+        목록
     </a>
-
+    <a
+        href="{% url "shop:shop_edit" shop.pk %}">
+        수정
+    </a>
+    <a
+        href="{% url "shop:shop_delete" shop.pk %}">
+        삭제
+    </a>
 {% endblock %}

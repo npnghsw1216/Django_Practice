@@ -13,8 +13,8 @@
 
     <hr/>
     {% if shop %}
-        <a href="{% url "shop:shop_detail" post.pk %}">
-            조회화면
+        <a href="{% url "shop:shop_detail" shop.pk %}">
+            조회
         </a>
     {% endif %}
 {% endblock %}
