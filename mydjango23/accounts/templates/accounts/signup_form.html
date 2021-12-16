@@ -1,0 +1,13 @@
+{% extends "accounts/layout.html" %}
+
+{% block content %}
+    <h2>회원 가입</h2>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+                {{ form.as_table }}
+        </table>
+        <input type="submit" value="회원가입 신청" />
+    </form>
+
+{% endblock %}
