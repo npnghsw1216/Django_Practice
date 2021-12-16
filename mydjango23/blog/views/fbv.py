@@ -7,7 +7,21 @@ from blog.models import Post
 
 
 def post_list(request: HttpRequest) -> HttpResponse:
+    # print(request.GET)
+    # print(request.GET.get("name"))  # dict 의 방식
+    # print(request.GET["name"])  # dict 의 방식
+    # print(request.GET.getlist("name"))  # MultiValueDict에 지원
     post_qs = Post.objects.all()
+
+    format = request.GET.get("format", "")
+
+    if format == "xlsx":
+        tabular_data = Post.get_tabular_data(post_qs, format="xlsx")
+        return HttpResponse(tabular_data, content_type="application/vnd.ms-excel")
+    elif format == "json":
+        tabular_data = Post.get_tabular_data(post_qs, format="json")
+        return HttpResponse(tabular_data, content_type="application/json")
+
     return render(request, 'blog/post_list.html', {
         'post_list': post_qs,
     })
@@ -74,3 +88,5 @@ def post_delete(request: HttpRequest, pk: int) -> HttpResponse:
             "post": post,
         }
     )
+
+
