@@ -1,0 +1,20 @@
+{% extends "shop/layout.html" %}
+
+{% block content %}
+    <h2>Shop List</h2>
+    <table>
+        <thead>
+            {% for shop in shop_list %}
+                <tr>
+                    <td>
+                        <a href="{% url "shop:shop_detail" shop.pk %}">
+                            {{ shop.title }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </thead>
+    </table>
+
+{% endblock %}
+
