@@ -1,26 +1,31 @@
 {% extends "shop/layout.html" %}
 
 {% block content %}
+    <hr/>
+
     <h2>{{ shop.title }}</h2>
 
-    <p>
-        {% for tag in shop.tag_set.all %}
-            {{ tag.name }}
-        {% endfor %}
-    </p>
+    <hr/>
 
+    <div>
+        <p>
+            {% for tag in shop.tag_set.all %}
+                {{ tag.name }}
+            {% endfor %}
+        </p>
+    </div>
     {{ shop.content|linebreaks }}
 
     <hr/>
     <a href="{% url "shop:shop_list" %}">
-        목록
+        *돌아가기*
     </a>
     <a
-        href="{% url "shop:shop_edit" shop.pk %}">
-        수정
+            href="{% url "shop:shop_edit" shop.pk %}">
+        *수정*
     </a>
     <a
-        href="{% url "shop:shop_delete" shop.pk %}">
-        삭제
+            href="{% url "shop:shop_delete" shop.pk %}">
+        *삭제*
     </a>
 {% endblock %}
