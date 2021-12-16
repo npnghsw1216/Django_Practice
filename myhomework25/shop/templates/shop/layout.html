@@ -1,3 +1,4 @@
+{% load bootstrap5 %}
 <!doctype html>
 <html lang="ko">
 <head>
@@ -7,16 +8,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>*별자리*</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
 
 </head>
 <body>
-<h1>*별자리*</h1>
+<div class="container">
+    {% bootstrap_messages %}
+    <h1>*별자리*</h1>
 
-{% block content %}
-{% endblock %}
+    {% block content %}
+    {% endblock %}
 
-<hr>
-&copy; 2021. npnghsw1216.
+    <hr>
+    &copy; 2021.npnghsw1216.
+</div>
 
 </body>
 </html>

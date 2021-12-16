@@ -1,0 +1,20 @@
+{% extends "shop/layout.html" %}
+
+{% block content %}
+    <h2>Shop Form</h2>
+
+    <form action="" method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit"/>
+    </form>
+
+    <hr/>
+    {% if shop %}
+        <a href="{% url "shop:shop_detail" post.pk %}">
+            조회화면
+        </a>
+    {% endif %}
+{% endblock %}
