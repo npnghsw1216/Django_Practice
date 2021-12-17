@@ -1,0 +1,12 @@
+{% extends "accounts/layout.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+    <h2>회원가입</h2>
+
+    <form action="" method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-primary" value="가입신청" />
+    </form>
+{% endblock %}
