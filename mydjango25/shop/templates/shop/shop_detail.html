@@ -16,4 +16,35 @@
     {% endif %}
 
     {{ shop.description|default:"설명이 없습니다." }}
+
+    <hr />
+    <hr />
+    <h3>목록</h3>
+    <a href="{% url 'shop:shop_list' %}" class="btn btn-primary">
+        목록
+    </a>
+    목록으로 돌아갑니다.
+    <hr />
+    <h3>리뷰</h3>
+
+    <a href="{% url 'shop:review_new' shop.pk %}" class="btn btn-primary">
+        리뷰 쓰기
+    </a>
+
+
+    {% for review in shop.review_set.all %}
+        <div>
+            {{ review.message }}
+            by {{ review.user }}
+            at {{ review.created_at }}
+            {% if review.user == request.user %}
+                <a href="{% url 'shop:review_edit' shop.pk review.pk %}">
+                    Edit
+                </a>
+            {% endif %}
+        </div>
+    {% empty %}
+        등록된 리뷰가 없습니다.
+    {% endfor %}
+
 {% endblock %}
