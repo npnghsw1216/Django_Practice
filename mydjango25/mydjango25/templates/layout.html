@@ -1,0 +1,29 @@
+{% load bootstrap5 %}
+
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        {% block page_title %}허성우 웹서비스{% endblock %}
+    </title>
+
+    {# 디폴트로 CDN 버전 #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+</head>
+<body>
+    <div class="container">
+    <h1>허성우 웹서비스</h1>
+
+    {% block content %}{% endblock %}
+
+    <hr />
+    &copy; 2021. 허성우.
+    </div>
+</body>
+</html>
